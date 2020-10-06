@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <string>
 #include <stdexcept>
+#include <algorithm>
 
 template<typename T>
 class TableauMemoire {
@@ -31,6 +32,7 @@ template<typename T>
 TableauMemoire<T>::TableauMemoire(size_t size) {
     _size = size;
     arrayPtr = new T[_size];
+    std::fill(arrayPtr, arrayPtr + _size, 0);
 }
 
 template<typename T>

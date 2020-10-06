@@ -11,6 +11,7 @@ public:
     Ruban &operator=(const Ruban &copy) = delete;
 
     unsigned char read() { return tab[_position]; };
+    void write(unsigned char& value) { tab[_position] = value; }
     void increment() { tab[_position] = ++tab[_position]; };
     void decrement() { tab[_position] = --tab[_position]; };
     void moveLeft();

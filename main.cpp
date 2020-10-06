@@ -1,20 +1,50 @@
 #include <iostream>
+#include <stack>
+#include "Program.h"
 #include "Ruban.h"
 
 int main() {
+    Program program{"../samples/mandelbrot.bf"};
+    Ruban ruban{512};
+    std::stack<int> loopStack{};
 
-    Ruban r{5};
+    while (!program.isEndOfProgram()) {
+        switch (program.readInst()) {
+            case '<':
+                ruban.moveLeft();
+                break;
+            case '>':
+                ruban.moveRight();
+                break;
+            case '+':
+                ruban.increment();
+                break;
+            case '-':
+                ruban.decrement();
+                break;
+            case ',':
+                unsigned char c;
+                std::cin >> c;
+                ruban.write(c);
+                break;
+            case '.':
+                std::cout << ruban.read();
+                break;
+            case '[':
+                if (ruban.read() != 0) {
+                    loopStack.push(program.getCurrentIndex() - 1);
+                } else
+                    program.goToLoopEnd();
+                break;
+            case ']':
+                program.goToIndex(loopStack.top());
+                loopStack.pop();
 
-    for (int i = 0; i < 5; ++i) {
-        for (int j = 0; j <= i; ++j)
-            r.increment();
-
-        r.moveRight();
+                break;
+            default:
+                break;
+        }
+        program.nextInst();
     }
-    for (int i = 0; i < 10; ++i) {
-        std::cout << +r.read() << std::endl;
-        r.moveLeft();
-    }
-
     return 0;
 }
