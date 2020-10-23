@@ -32,7 +32,7 @@ template<typename T>
 TableauMemoire<T>::TableauMemoire(size_t size) {
     _size = size;
     arrayPtr = new T[_size];
-    std::fill(arrayPtr, arrayPtr + _size, 0);
+    std::fill(arrayPtr, arrayPtr + _size, T {});
 }
 
 template<typename T>

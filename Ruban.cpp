@@ -1,6 +1,6 @@
 #include "Ruban.h"
 
-Ruban::Ruban(size_t length) : _position{0}, tab{TableauMemoire<unsigned char>(length)} {}
+Ruban::Ruban(size_t length) : _position{0}, tab{length} {}
 
 void Ruban::moveLeft() {
     if (_position == 0)

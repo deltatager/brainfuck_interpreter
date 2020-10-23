@@ -2,6 +2,18 @@
 <project version="4">
   <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
+      <paths name="Pi Cégep (36cb30fb-deff-44e9-9a92-0e9ac3cfed67)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.XuVqF04Vwd" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-vs" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-pi" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
       <paths name="Pi2 (5ac377f4-8ce7-4387-a61e-cc343ed41bcd)">
         <serverdata>
           <mappings>
